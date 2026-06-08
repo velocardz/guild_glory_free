@@ -159,6 +159,10 @@
             box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
         }
 
+        select option:first-child {
+            color: var(--text-muted);
+        }
+
         .btn {
             width: 100%;
             padding: 15px;
@@ -173,6 +177,9 @@
             box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
             letter-spacing: 0.5px;
             transition: 0.2s;
+            display: block;
+            text-align: center;
+            text-decoration: none;
         }
 
         .btn:hover {
@@ -366,7 +373,7 @@
             border-radius: 12px;
             padding: 15px;
             background: rgba(10, 10, 10, 0.95);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
         
         .queue-header {
@@ -444,6 +451,19 @@
             display: inline-block;
             box-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
         }
+
+        /* --- GO TO HOME NEON BUTTON --- */
+        .home-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+        .home-btn:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -467,6 +487,7 @@
             <div class="form-group">
                 <label>Select Country</label>
                 <select id="country">
+                    <option value="" disabled selected hidden>Select Country</option>
                     <option value="Singapore">Singapore</option>
                     <option value="India">India</option>
                     <option value="Bangladesh">Bangladesh</option>
@@ -482,18 +503,17 @@
             <div class="form-group">
                 <label>Select Mobile Device</label>
                 <select id="device">
-                    <option value="Apple iPhone">Apple iPhone (iOS)</option>
-                    <option value="ASUS ROG Phone">ASUS ROG Phone</option>
-                    <option value="Samsung Galaxy Ultra">Samsung Galaxy Ultra</option>
-                    <option value="Xiaomi / Redmi">Xiaomi / Redmi Note</option>
-                    <option value="Realme GT">Realme GT Series</option>
-                    <option value="Vivo / iQOO">Vivo / iQOO Series</option>
-                    <option value="OnePlus Pro">OnePlus Pro</option>
-                    <option value="POCO X / F">POCO X / F Series</option>
-                    <option value="Infinix GT">Infinix GT Series</option>
-                    <option value="Motorola Edge">Motorola Edge Series</option>
-                    <option value="Tecno Pova">Tecno Pova Series</option>
-                    <option value="Google Pixel">Google Pixel Pro</option>
+                    <option value="" disabled selected hidden>Select Device Brand</option>
+                    <option value="iPhone">iPhone</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Vivo">Vivo</option>
+                    <option value="Oppo">Oppo</option>
+                    <option value="Infinix">Infinix</option>
+                    <option value="Realme">Realme</option>
+                    <option value="OnePlus">OnePlus</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                    <option value="iQOO">iQOO</option>
+                    <option value="POCO">POCO</option>
                 </select>
             </div>
             <button class="btn" onclick="goToStep2()">Next Step</button>
@@ -603,7 +623,9 @@
                 </div>
             </div>
 
-            <p style="font-size: 12px; color: var(--text-muted); margin-top: 15px; line-height: 1.5;">The listed bots will be injected into your Guild within 1-2 hours automaticamente. KEEP GAME ACTIVE.</p>
+            <a href="https://youtube.com/@gw_pathshala?si=SQQIgnt3yzRgMT6E" target="_blank" class="btn home-btn"><i class="fa-solid fa-house" style="margin-right: 8px;"></i>Go To Home</a>
+
+            <p style="font-size: 11px; color: var(--text-muted); margin-top: 18px; line-height: 1.5;">The listed bots will be injected into your Guild within 1-2 hours automaticamente. KEEP GAME ACTIVE.</p>
         </div>
     </div>
 </div>
@@ -648,9 +670,16 @@
         activeBot = botType;
     }
 
+    // FORM ACCURACY SYSTEM CHECK
     function goToStep2() {
         const uid = document.getElementById('guildUid').value;
+        const country = document.getElementById('country').value;
+        const device = document.getElementById('device').value;
+
         if(!uid || uid.length < 5) { alert("Enter Valid Guild UID!"); return; }
+        if(!country) { alert("Please Select a Country!"); return; }
+        if(!device) { alert("Please Select a Device Brand!"); return; }
+
         document.getElementById('step1').classList.remove('active');
         document.getElementById('step2').classList.add('active');
     }
