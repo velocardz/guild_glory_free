@@ -187,7 +187,6 @@
             transform: translateY(-1px);
         }
 
-        /* --- HEAVY BOT ANIMATIONS SYSTEMS --- */
         .bot-option {
             background: rgba(18, 18, 18, 0.9);
             border: 1px solid #222222;
@@ -200,34 +199,24 @@
             overflow: hidden;
         }
 
-        /* 1. Ultra Bot - Pulse Lightning Effect */
-        .bot-option.ultra-tier {
-            animation: ultraPulse 2.5s infinite alternate;
-        }
+        .bot-option.ultra-tier { animation: ultraPulse 2.5s infinite alternate; }
         @keyframes ultraPulse {
             0% { border-color: #222; box-shadow: 0 0 5px rgba(0,255,102,0.05); }
             100% { border-color: rgba(0, 255, 102, 0.4); box-shadow: 0 0 15px rgba(0,255,102,0.15); }
         }
 
-        /* 2. VIP Bot - Cyber Aura Breathing Animation */
-        .bot-option.vip-tier {
-            animation: vipBreathing 3s infinite ease-in-out;
-        }
+        .bot-option.vip-tier { animation: vipBreathing 3s infinite ease-in-out; }
         @keyframes vipBreathing {
             0%, 100% { border-color: #222; box-shadow: 0 0 0px transparent; }
             50% { border-color: rgba(0, 153, 255, 0.4); box-shadow: 0 0 12px rgba(0, 153, 255, 0.15); }
         }
 
-        /* 3. Pro Bot - Automated Grid Wave Animation */
-        .bot-option.pro-tier {
-            animation: proWave 3.5s infinite linear;
-        }
+        .bot-option.pro-tier { animation: proWave 3.5s infinite linear; }
         @keyframes proWave {
             0%, 100% { border-color: #222; }
             50% { border-color: rgba(255, 0, 102, 0.35); box-shadow: 0 0 10px rgba(255, 0, 102, 0.1); }
         }
 
-        /* Hover Transitions */
         .bot-option:hover {
             transform: translateY(-3px) scale(1.01);
             background: rgba(25, 25, 25, 0.98);
@@ -236,7 +225,6 @@
         .bot-option.vip-tier:hover { border-color: #0099ff; box-shadow: 0 0 20px rgba(0, 153, 255, 0.3); }
         .bot-option.pro-tier:hover { border-color: #ff0066; box-shadow: 0 0 20px rgba(255, 0, 102, 0.3); }
 
-        /* Selected State Custom Sync */
         .bot-option.selected {
             background: rgba(0, 255, 102, 0.05) !important;
             border-color: var(--primary) !important;
@@ -277,7 +265,6 @@
             color: var(--text-muted);
         }
 
-        /* --- COUNTDOWN BOX STYLE (STEP 3) --- */
         .timer-box {
             background: #000;
             border: 1px solid #1f1f1f;
@@ -306,7 +293,6 @@
             font-weight: 600;
         }
 
-        /* --- TERMINAL OUTPUT SYSTEM (STEP 5) --- */
         .terminal {
             background: #000000;
             border: 1px solid #1f1f1f;
@@ -355,6 +341,28 @@
             border: 1px solid var(--primary);
         }
 
+        /* PAYMENT BOX STYLING */
+        .qr-card {
+            background: rgba(18, 18, 18, 0.95);
+            border: 1px solid #252525;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .qr-img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            padding: 5px;
+            background: #fff;
+            margin: 10px auto;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+        }
+
         .success-badge {
             background: linear-gradient(135deg, #ffcc00, #ff9900);
             color: #000;
@@ -367,7 +375,6 @@
             box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
         }
 
-        /* --- FINAL LANDING PROFILE BOX SYSTEM --- */
         .live-queue {
             border: 1px solid #202020;
             border-radius: 12px;
@@ -452,7 +459,6 @@
             box-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
         }
 
-        /* --- GO TO HOME NEON BUTTON --- */
         .home-btn {
             background: transparent;
             border: 2px solid var(--primary);
@@ -478,6 +484,7 @@
     <div class="main-title">GUILD GLORY BOT</div>
     
     <div class="card">
+        <!-- STEP 1 -->
         <div id="step1" class="step active">
             <div class="subtitle">CONFIGURATION SYSTEM</div>
             <div class="form-group">
@@ -519,6 +526,7 @@
             <button class="btn" onclick="goToStep2()">Next Step</button>
         </div>
 
+        <!-- STEP 2 -->
         <div id="step2" class="step">
             <div class="subtitle">SELECT BOT POWER</div>
             
@@ -547,6 +555,7 @@
             <button class="btn" onclick="goToStep3()">Connect Bot</button>
         </div>
 
+        <!-- STEP 3 -->
         <div id="step3" class="step">
             <div class="subtitle">ESTABLISHING CONNECTION</div>
             <div class="timer-box">
@@ -555,10 +564,11 @@
             </div>
         </div>
 
+        <!-- STEP 4 -->
         <div id="step4" class="step">
             <div class="subtitle">MANDATORY MISSIONS</div>
             <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 20px;">
-                Complete all missions below to inject the system logs.
+                Complete all missions below to proceed to activation.
             </p>
 
             <div class="task-box">
@@ -581,14 +591,33 @@
                 <a href="https://t.me/GwExtraa52" target="_blank" class="task-btn" onclick="completeTask(this, 4)">Join Now</a>
             </div>
 
-            <button class="btn" id="claimBtn" style="background: #202020; color: #555; pointer-events: none;" onclick="goToStep5()">Verify & Activate</button>
+            <button class="btn" id="claimBtn" style="background: #202020; color: #555; pointer-events: none;" onclick="goToStepPayment()">Verify & Proceed</button>
         </div>
 
+        <!-- STEP PAYMENT (UPI QR CODE) -->
+        <div id="stepPayment" class="step">
+            <div class="subtitle">PAYMENT VERIFICATION</div>
+            <div class="qr-card">
+                <p style="font-size: 12px; color: #fff; margin-bottom: 6px;">Scan & Pay Activation Fee</p>
+                <img src="qr-code.png" alt="UPI QR Code" class="qr-img">
+                <p style="font-size: 11px; color: var(--text-muted);">Scan via PhonePe / Paytm / Google Pay</p>
+            </div>
+
+            <div class="form-group">
+                <label>Enter Transaction ID / UTR</label>
+                <input type="text" id="utrInput" placeholder="e.g. 4231XXXXXX89">
+            </div>
+
+            <button class="btn" onclick="verifyPayment()">Submit & Inject Bot</button>
+        </div>
+
+        <!-- STEP 5 -->
         <div id="step5" class="step">
             <div class="subtitle">INJECTING DATABASE</div>
             <div class="terminal" id="term2"></div>
         </div>
 
+        <!-- STEP 6 -->
         <div id="step6" class="step" style="text-align: center;">
             <div class="success-badge">VIP STATUS ACTIVATED</div>
             <h3 style="margin-bottom: 10px; letter-spacing: 1px; font-weight: 800;">GW PATHSHALA CONNECTED</h3>
@@ -625,7 +654,7 @@
 
             <a href="https://youtube.com/@gw_pathshala?si=SQQIgnt3yzRgMT6E" target="_blank" class="btn home-btn"><i class="fa-solid fa-house" style="margin-right: 8px;"></i>Go To Home</a>
 
-            <p style="font-size: 11px; color: var(--text-muted); margin-top: 18px; line-height: 1.5;">The listed bots will be injected into your Guild within 1-2 hours automaticamente. KEEP GAME ACTIVE.</p>
+            <p style="font-size: 11px; color: var(--text-muted); margin-top: 18px; line-height: 1.5;">The listed bots will be injected into your Guild within 1-2 hours automatically. KEEP GAME ACTIVE.</p>
         </div>
     </div>
 </div>
@@ -670,7 +699,6 @@
         activeBot = botType;
     }
 
-    // FORM ACCURACY SYSTEM CHECK
     function goToStep2() {
         const uid = document.getElementById('guildUid').value;
         const country = document.getElementById('country').value;
@@ -690,7 +718,6 @@
         runTimer12Seconds();
     }
 
-    // SCREEN 3: FIXED 12 SECONDS COUNTDOWN (NO TERMINAL LOGS)
     function runTimer12Seconds() {
         const timerElement = document.getElementById('countdown12');
         let timeLeft = 12;
@@ -713,18 +740,29 @@
             completedTasks[taskNum] = true;
             if(completedTasks[1] && completedTasks[2] && completedTasks[3] && completedTasks[4]) {
                 const btn = document.getElementById('claimBtn');
-                btn.style.background = "var(--primary)"; btn.style.color = "#000"; btn.style.pointerEvents = "auto";
+                btn.style.background = "var(--primary)"; 
+                btn.style.color = "#000"; 
+                btn.style.pointerEvents = "auto";
             }
         }, 4000);
     }
 
-    function goToStep5() {
+    function goToStepPayment() {
         document.getElementById('step4').classList.remove('active');
+        document.getElementById('stepPayment').classList.add('active');
+    }
+
+    function verifyPayment() {
+        const utr = document.getElementById('utrInput').value;
+        if(!utr || utr.length < 6) {
+            alert("Please enter a valid UTR / Transaction ID!");
+            return;
+        }
+        document.getElementById('stepPayment').classList.remove('active');
         document.getElementById('step5').classList.add('active');
         runTerminal2();
     }
 
-    // SCREEN 5: EXTENDED 20s HIGH-SPEED TERMINAL LOGS
     function runTerminal2() {
         const term = document.getElementById('term2');
         const uid = document.getElementById('guildUid').value;
@@ -733,6 +771,7 @@
         const lines = [
             " verification response token status: APPROVED",
             " status code: 200 (auth_success_handshake)",
+            " payment transaction reference verified...",
             " generating system secure logs key payload...",
             " initializing heavy secure cluster bypass...",
             ` binding active session tokens to guild uid: ${uid}`,
@@ -770,13 +809,12 @@
                 term.innerHTML += timeStr + "$ " + lines[i] + "<br>";
                 term.scrollTop = term.scrollHeight;
                 i++;
-                setTimeout(print, 680); // Perfectly calibrated over 20s execution windows
-            }
-            else {
+                setTimeout(print, 650);
+            } else {
                 setTimeout(() => {
                     document.getElementById('step5').classList.remove('active');
                     document.getElementById('step6').classList.add('active');
-                }, 800);
+                }, 1000);
             }
         }
         print();
